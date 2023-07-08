@@ -1,18 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 public class BoardGenerator : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [Button]
+    public void Generate()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        var pos = Vector2.zero;
+        for (var i = 0; i < 10; i++)
+        {
+            var tile = GameManager.Instance.ObjectPooler.InstantiateRandomTile();
+            tile.transform.position = pos;
+            pos.x += 1;
+        }
     }
 }

@@ -1,18 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
+using Ultimate.Core.Runtime.Pool;
 using UnityEngine;
 
-public class ObjectPooler : MonoBehaviour
+[CreateAssetMenu(fileName = "ObjectPooler", menuName = "Data/ObjectPooler", order = 0)]
+public class ObjectPooler : ScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private Tile _tilePrefab;
+    [SerializeField] private TileCollection _tileCollection;
+
+    public Tile InstantiateRandomTile()
     {
-        
+        var tile = FastPoolManager.GetPool(_tilePrefab).FastInstantiate<Tile>();
+        tile.SetSpriteRenderer(_tileCollection.GetRandomTile(GameManager.Instance.GameConfig.tileGroup));
+        return tile;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void DestroyTile(GameObject gameObject)
     {
-        
+        FastPoolManager.GetPool(_tilePrefab).FastDestroy(gameObject);
     }
 }

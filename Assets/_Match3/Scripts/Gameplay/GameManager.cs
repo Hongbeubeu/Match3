@@ -1,18 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using Ultimate.Core.Runtime.Singleton;
 
-public class GameManager : MonoBehaviour
+public class GameManager : Singleton<GameManager>
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GameConfig GameConfig;
 
-    // Update is called once per frame
-    void Update()
+    public ObjectPooler ObjectPooler;
+    
+    
+    public override void Init()
     {
-        
     }
 }
