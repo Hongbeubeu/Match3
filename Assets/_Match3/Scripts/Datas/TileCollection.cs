@@ -5,8 +5,8 @@ public class TileCollection : ScriptableObject
 {
     public TileGroup[] TileGroups;
 
-    public Sprite GetRandomTile(GroupType groupIndex)
+    public (Sprite, int) GetRandomTile(GroupType groupType, int[] ignores)
     {
-        return TileGroups[(int) groupIndex].GetRandomSprite();
+        return TileGroups[(int) groupType].GetRandomSprite(ignores);
     }
 }

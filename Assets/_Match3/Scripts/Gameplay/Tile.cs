@@ -4,11 +4,18 @@ public class Tile : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer _renderer;
 
-    private int id;
+    private int _id;
 
-    public void SetSpriteRenderer(Sprite sprite)
+    public int ID
     {
-        _renderer.sprite = sprite;
+        get => _id;
+        set => _id = value;
+    }
+
+    public void SetSpriteRenderer((Sprite, int) spriteTuple)
+    {
+        _renderer.sprite = spriteTuple.Item1;
+        _id = spriteTuple.Item2;
     }
 
     public void Destroy()

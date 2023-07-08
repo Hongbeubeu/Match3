@@ -7,10 +7,10 @@ public class ObjectPooler : ScriptableObject
     [SerializeField] private Tile _tilePrefab;
     [SerializeField] private TileCollection _tileCollection;
 
-    public Tile InstantiateRandomTile()
+    public Tile InstantiateRandomTile(int[] ignores)
     {
         var tile = FastPoolManager.GetPool(_tilePrefab).FastInstantiate<Tile>();
-        tile.SetSpriteRenderer(_tileCollection.GetRandomTile(GameManager.Instance.GameConfig.tileGroup));
+        tile.SetSpriteRenderer(_tileCollection.GetRandomTile(GameManager.Instance.GameConfig.TileGroup, ignores));
         return tile;
     }
 
