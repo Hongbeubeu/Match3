@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43c625683657f2544bd2d8b95873e4ec, type: 3}
   m_Name: GameConfig
   m_EditorClassIdentifier: 
-  TileGroup: 0
-  MapSize: {x: 10, y: 10}
+  TileGroup: 1
+  BoardSize: {x: 5, y: 7}
