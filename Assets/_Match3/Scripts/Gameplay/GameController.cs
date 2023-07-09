@@ -4,16 +4,37 @@ using UnityEngine;
 
 public class GameController : Singleton<GameController>
 {
+    [SerializeField] private GameObject _selected;
+
     public BoardController BoardController;
+    public InputContoller InputContoller;
+    public Cell HoldedCell;
 
     public override void Init()
     {
+    }
+
+    public void SetHoldedCell(Cell cell)
+    {
+        if (cell == null)
+        {
+            _selected.SetActive(false);
+            HoldedCell = null;
+            return;
+        }
+
+        _selected.SetActive(true);
+        HoldedCell = cell;
+        var pos = GridPositionToWorldPosition(cell.CellPosition);
+        pos.z = 1;
+        _selected.transform.position = pos;
     }
 
     [Button(ButtonSizes.Gigantic)]
     public void Play()
     {
         BoardController.SpawnBoard();
+        SetHoldedCell(null);
     }
 
     public Vector2Int WorldPositionToGridPosition(Vector2 worldPostion)

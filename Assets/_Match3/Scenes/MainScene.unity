@@ -451,7 +451,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46e30a7d03ef4584b9f309922c60ae23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _selected: {fileID: 420594332}
   BoardController: {fileID: 1964234305}
+  InputContoller: {fileID: 139531024}
 --- !u!114 &139531024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -464,7 +466,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78c7188f31174dd3a291def1d7c3fa69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _selected: {fileID: 420594332}
+  _camera: {fileID: 963194227}
 --- !u!1 &161406964
 GameObject:
   m_ObjectHideFlags: 0
@@ -584,7 +586,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &420594333
 SpriteRenderer:
   m_ObjectHideFlags: 0

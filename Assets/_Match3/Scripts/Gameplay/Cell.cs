@@ -11,6 +11,13 @@ public class Cell
         Tile = tile;
     }
 
+    public void UpdatePosition()
+    {
+        if(Tile == null)
+            return;
+        Tile.transform.position = GameController.Instance.GridPositionToWorldPosition(CellPosition);
+    }
+
     public void DestroyTile()
     {
         if (Tile != null)
